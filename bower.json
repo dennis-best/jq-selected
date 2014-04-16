@@ -1,0 +1,21 @@
+{
+  "name": "jq-selected",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dennis-best/jq-selected",
+  "authors": [
+    "Dennis Best <dennis.best@me.com>"
+  ],
+  "description": "Add CSS classes to recently clicked items and boldly let CSS handle mundane tasks normally handled by javascript.",
+  "main": "selected.js",
+  "keywords": [
+    "jQuery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
