@@ -1,6 +1,6 @@
 #jq-selected
 
-Wish you could stye more :hover? Add CSS classes to recently clicked items and boldly let CSS handle mundane tasks normally handled by javascript. 
+Wish you could stye more than :hover with CSS? Add CSS classes to recently clicked items and boldly let CSS handle mundane tasks normally handled by javascript. 
 
 ## Whut? Why?
 
