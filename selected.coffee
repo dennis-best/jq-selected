@@ -12,7 +12,7 @@ $.fn.selected = (parent=null) ->
       if parent?
         $("#{parent} [class*=#{className}]").not(clickTarget).removeClass "selected odd even"
       else
-        $("*[class*=" + className + "]").not(clickTarget).removeClass "selected odd even"
+        $("*[class*=#{className}]").not(clickTarget).removeClass "selected odd even"
       clickTarget.addClass "selected"
 
       if clickTarget.hasClass "odd"
