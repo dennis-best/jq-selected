@@ -1,6 +1,6 @@
 $ = jQuery
 $.fn.selected = (parent=null) ->
-  @click (event, parent) ->
+  @click (event) ->
     if $(event.target).is(this)
       clickTarget = event.target
     else

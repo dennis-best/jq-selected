@@ -7,7 +7,7 @@
     if (parent == null) {
       parent = null;
     }
-    return this.click(function(event, parent) {
+    return this.click(function(event) {
       var className, clickTarget;
       if ($(event.target).is(this)) {
         clickTarget = event.target;
