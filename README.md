@@ -1,6 +1,10 @@
 #jq-selected
 
-Wish you could stye more than :hover with CSS? Add CSS classes to recently clicked items and boldly let CSS handle mundane tasks normally handled by javascript. 
+Wish you could stye more than just :hover with CSS? 
+
+Well, now you can style elements when they are clicked. 
+
+jq-selected add classes to recently clicked items to boldly let CSS handle mundane tasks normally handled by javascript. 
 
 ## Whut? Why?
 
@@ -20,7 +24,25 @@ Foo can be whatever.
 
 Now, when .foo is clicked, it gets the class **selected** and either the class **odd** or **even** depending on the number of times it was clicked. 
 
-Other items that begin with the same class as the .foo you clicked (can be .foo or any other class)  are toggled, you can style only the most recent item "with even or odd" or all of them with "selected".
+###  Options
+
+    $(".foo").selected({
+       parent: '.bar',
+       selectAll: false // default is true
+    });
+    
+
+
+By default, other items that BEGIN with the same class you clicked (can be .foo or any other class) are toggled. You can disable this by setting the option selectAll to false.
+
+You can also specify a parent selector to limit the scope of the selected item. 
+
+
+###  Styling
+
+
+You can style the most recent clicked item with "even" or "odd" or all clicked items with the class"selected".
+
 
 Styling could go something like this:
 
