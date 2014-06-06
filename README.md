@@ -4,7 +4,7 @@ Wish you could stye more than just :hover with CSS?
 
 Well, now you can style elements when they are clicked. 
 
-jq-selected add classes to recently clicked items to boldly let CSS handle mundane tasks normally handled by javascript. 
+jq-selected adds classes to recently clicked items and boldly lets CSS handle mundane tasks normally handled by javascript. 
 
 ## Whut? Why?
 
