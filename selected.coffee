@@ -1,5 +1,8 @@
 $ = jQuery
-$.fn.selected = (parent=null) ->
+$.fn.selected = (options={}) ->
+  parent = if options.parent? then options.parent else null
+  selectAll = if options.selectAll? then options.selectAll else true
+
   @click (event) ->
     if $(event.target).is(this)
       clickTarget = event.target
@@ -11,7 +14,7 @@ $.fn.selected = (parent=null) ->
       className = clickTarget.attr("class").split(" ")[0]
       if parent?
         $("#{parent} [class*=#{className}]").not(clickTarget).removeClass "selected odd even"
-      else
+      else if selectAll
         $("*[class*=#{className}]").not(clickTarget).removeClass "selected odd even"
       clickTarget.addClass "selected"
 
