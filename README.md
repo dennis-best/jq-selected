@@ -12,7 +12,6 @@ I got tired of scripting .click events in javascript for things like drop-down m
 
 jq-selected adds classes to recently clicked items so you easily can apply CSS -- and CSS animations!
 
-When targeted item is clicked, it gets the class "selected" and either the class "odd" or "even" depending on the number of times it was clicked. 
 
 ###  Usage
 
