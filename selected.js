@@ -3,10 +3,13 @@
 
   $ = jQuery;
 
-  $.fn.selected = function(parent) {
-    if (parent == null) {
-      parent = null;
+  $.fn.selected = function(options) {
+    var parent, selectAll;
+    if (options == null) {
+      options = {};
     }
+    parent = options.parent != null ? options.parent : null;
+    selectAll = options.selectAll != null ? options.selectAll : true;
     return this.click(function(event) {
       var className, clickTarget;
       if ($(event.target).is(this)) {
@@ -19,7 +22,7 @@
         className = clickTarget.attr("class").split(" ")[0];
         if (parent != null) {
           $("" + parent + " [class*=" + className + "]").not(clickTarget).removeClass("selected odd even");
-        } else {
+        } else if (selectAll) {
           $("*[class*=" + className + "]").not(clickTarget).removeClass("selected odd even");
         }
         clickTarget.addClass("selected");
