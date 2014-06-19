@@ -27,6 +27,7 @@ Now, when .foo is clicked, it gets the class **selected** and either the class *
 
     $(".foo").selected({
        parent: '.bar',
+       targetEl: '.baz',
        selectAll: false // default is true
     });
     
@@ -35,6 +36,12 @@ Now, when .foo is clicked, it gets the class **selected** and either the class *
 By default, other items that BEGIN with the same class you clicked (can be .foo or any other class) are toggled. You can disable this by setting the option selectAll to false.
 
 You can also specify a parent selector to limit the scope of the selected item. 
+
+And finally, you can choose an alternate element to add/remove the toggle classes.
+    
+    $(".foo").selected({
+       targetEl: '.baz'
+    });
 
 
 ###  Styling
