@@ -1,30 +1,31 @@
 (function() {
   var $;
-
   $ = jQuery;
 
   $.fn.selected = function(options) {
-    var parent, selectAll, targetEl;
+    var parent, selectAll, targetClass;
     if (options == null) {
       options = {};
     }
     parent = options.parent != null ? options.parent : null;
-    targetEl = options.targetEl != null ? options.targetEl : null;
+    targetClass = options.targetClass != null ? options.targetClass : null;
     selectAll = options.selectAll != null ? options.selectAll : true;
     return this.click(function(event) {
-      var className, clickTarget;
+      var className, clickTarget, targetEl;
       if ($(event.target).is(this)) {
         clickTarget = event.target;
       } else {
         clickTarget = $(event.target).closest(this)[0];
       }
       if (clickTarget === event.currentTarget) {
-        if (targetEl != null) {
-          clickTarget = $("" + targetEl);
+        if (targetClass != null) {
+          targetEl = "." + targetClass;
+          clickTarget = $(event.target).closest(targetEl);
+          className = targetClass;
         } else {
           clickTarget = $(clickTarget);
+          className = clickTarget.attr("class").split(" ")[0];
         }
-        className = clickTarget.attr("class").split(" ")[0];
         if (parent != null) {
           $("" + parent + " [class*=" + className + "]").not(clickTarget).removeClass("selected odd even");
         } else if (selectAll) {
@@ -42,4 +43,3 @@
     });
   };
 }).call(this);
-
