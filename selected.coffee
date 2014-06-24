@@ -32,3 +32,5 @@ $.fn.selected = (options={}) ->
       else
         clickTarget.addClass "odd"
         clickTarget.removeClass "even"
+
+    clickTarget.trigger "cssClassChanged"

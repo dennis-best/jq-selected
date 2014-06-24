@@ -1,7 +1,6 @@
 (function() {
   var $;
   $ = jQuery;
-
   $.fn.selected = function(options) {
     var parent, selectAll, targetClass;
     if (options == null) {
@@ -34,12 +33,13 @@
         clickTarget.addClass("selected");
         if (clickTarget.hasClass("odd")) {
           clickTarget.addClass("even");
-          return clickTarget.removeClass("odd");
+          clickTarget.removeClass("odd");
         } else {
           clickTarget.addClass("odd");
-          return clickTarget.removeClass("even");
+          clickTarget.removeClass("even");
         }
       }
+      return clickTarget.trigger('cssClassChanged');
     });
   };
 }).call(this);
