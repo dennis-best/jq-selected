@@ -10,7 +10,7 @@ jq-selected adds classes to recently clicked items and boldly lets CSS handle mu
 
 I got tired of scripting .click events in javascript for things like drop-down menus, tooltips, popups, modals, etc. 
 
-jq-selected adds classes to recently clicked items so you easily can apply CSS -- and CSS animations!
+jq-selected adds classes to recently clicked items so you can apply CSS -- and CSS animations!
 
 
 ###  Usage
