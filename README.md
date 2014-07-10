@@ -27,7 +27,7 @@ Now, when .foo is clicked, it gets the class **selected** and either the class *
 
     $(".foo").selected({
        parent: '.bar',
-       targetClass: '.baz',
+       targetClass: 'baz',
        selectAll: false // default is true
     });
     
