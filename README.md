@@ -21,7 +21,9 @@ Add this to your document.ready
     
 Foo can be whatever. 
 
-Now, when .foo is clicked, it gets the class **selected** and either the class **odd** or **even** depending on the number of times it was clicked. 
+Now, when .foo is clicked, it gets the class **selected** and either the class **odd** or **even** depending on the number of times it was clicked.
+
+In the situation where a parent has .slected() and a child has .selected() as well, when the child is clicked the event does not bubble up to the parent. (basically, only the child's class is changed, not the parent)
 
 ###  Options
 

@@ -5,6 +5,7 @@ $.fn.selected = (options={}) ->
   selectAll = if options.selectAll? then options.selectAll else true
 
   @click (event) ->
+    return unless event.target is event.currentTarget
     if $(event.target).is(this)
       clickTarget = event.target
     else

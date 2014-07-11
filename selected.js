@@ -1,6 +1,8 @@
 (function() {
   var $;
+
   $ = jQuery;
+
   $.fn.selected = function(options) {
     var parent, selectAll, targetClass;
     if (options == null) {
@@ -11,6 +13,9 @@
     selectAll = options.selectAll != null ? options.selectAll : true;
     return this.click(function(event) {
       var className, clickTarget, targetEl;
+      if (event.target !== event.currentTarget) {
+        return;
+      }
       if ($(event.target).is(this)) {
         clickTarget = event.target;
       } else {
@@ -39,7 +44,8 @@
           clickTarget.removeClass("even");
         }
       }
-      return clickTarget.trigger('cssClassChanged');
+      return clickTarget.trigger("cssClassChanged");
     });
   };
+
 }).call(this);
