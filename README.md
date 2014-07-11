@@ -26,22 +26,17 @@ Now, when .foo is clicked, it gets the class **selected** and either the class *
 ###  Options
 
     $(".foo").selected({
-       parent: '.bar',
-       targetClass: 'baz',
-       selectAll: false // default is true
+       parent: '.bar',       
+       targetClass: 'baz',    // name only do not include '.' identifier 
+       selectAll: false       // default is true
     });
     
 
+`parent` : Given the selector, (ie. `#id`, `.class`, `ul`), `parent` limits the scope of the selected item(s).
 
-By default, other items that BEGIN with the same class you clicked (can be .foo or any other class) are toggled. You can disable this by setting the option selectAll to false.
+`targetClass` : accepts class name, (*Don't include the period in the class name*), and will toggle the selected class of the `targetClass`. Note: Useful for having a child element toggle its parent's state.
 
-You can also specify a parent selector to limit the scope of the selected item. 
-
-And finally, you can choose an alternate class (closest parent element) to add/remove the toggle classes instead of the clicked item.
-    
-    $(".foo").selected({
-       targetClass: 'baz'
-    });
+`selectAll` : By default, other items that BEGIN with the same class you clicked (can be .foo or any other class) are toggled. You can disable this by setting the option selectAll to false.
 
 
 ###  Styling
