@@ -1,10 +1,13 @@
 $ = jQuery
 $.fn.selected = (options={}) ->
-  parent = if options.parent? then options.parent else null
-  targetClass =  if options.targetClass? then options.targetClass else null
-  selectAll = if options.selectAll? then options.selectAll else true
+  bubbleUpEvent  = if options.bubbleUpEvent? then options.bubbleUpEvent else false
+  parent         = if options.parent? then options.parent else null
+  targetSelector = if options.targetSelector? then options.targetSelector else null
+  selectAll      = if options.selectAll? then options.selectAll else true
 
   @click (event) ->
+    unless bubbleUpEvent
+      return unless event.target is event.currentTarget
     if $(event.target).is(this)
       clickTarget = event.target
     else
@@ -12,10 +15,10 @@ $.fn.selected = (options={}) ->
 
     if clickTarget is event.currentTarget
 
-      if targetClass?
-        targetEl = ".#{targetClass}"
+      if targetSelector?
+        targetEl = ".#{targetSelector}"
         clickTarget = $(event.target).closest(targetEl)
-        className = targetClass
+        className = targetSelector
 
       else
         clickTarget = $(clickTarget)
