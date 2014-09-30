@@ -2,7 +2,7 @@ $ = jQuery
 $.fn.selected = (options={}) ->
   bubbleUpEvent  = if options.bubbleUpEvent? then options.bubbleUpEvent else false
   parent         = if options.parent? then options.parent else null
-  targetSelector = if options.targetSelector? then options.targetSelector else null
+  targetClass    = if options.targetClass? then options.targetClass else null
   selectAll      = if options.selectAll? then options.selectAll else true
 
   @click (event) ->
@@ -13,8 +13,10 @@ $.fn.selected = (options={}) ->
       clickTarget = $(event.target).closest(this)[0]
 
     if clickTarget is event.currentTarget
-      if targetSelector?
-        clickTarget = $(event.target).closest(targetSelector)
+      if targetClass?
+        targetEl = ".#{targetClass}"
+        clickTarget = $(event.target).closest(targetEl)
+        className = targetClass
       else
         clickTarget = $(clickTarget)
       className = clickTarget.attr("class").split(" ")[0]
@@ -30,5 +32,4 @@ $.fn.selected = (options={}) ->
       else
         clickTarget.addClass "odd"
         clickTarget.removeClass "even"
-
     clickTarget.trigger "cssClassChanged"
