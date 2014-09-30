@@ -4,16 +4,17 @@
   $ = jQuery;
 
   $.fn.selected = function(options) {
-    var parent, selectAll, targetClass;
+    var bubbleUpEvent, parent, selectAll, targetClass;
     if (options == null) {
       options = {};
     }
+    bubbleUpEvent = options.bubbleUpEvent != null ? options.bubbleUpEvent : false;
     parent = options.parent != null ? options.parent : null;
     targetClass = options.targetClass != null ? options.targetClass : null;
     selectAll = options.selectAll != null ? options.selectAll : true;
     return this.click(function(event) {
       var className, clickTarget, targetEl;
-      if (event.target !== event.currentTarget) {
+      if (!((event.target === event.currentTarget) && bubbleUpEvent)) {
         return;
       }
       if ($(event.target).is(this)) {
