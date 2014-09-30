@@ -19,7 +19,7 @@ $.fn.selected = (options={}) ->
         className = targetClass
       else
         clickTarget = $(clickTarget)
-      className = clickTarget.attr("class").split(" ")[0]
+        className = clickTarget.attr("class").split(" ")[0]
 
       if parent?
         $("#{parent} [class*=#{className}]").not(clickTarget).removeClass "selected odd even"
