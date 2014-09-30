@@ -27,7 +27,7 @@ Now, when .foo is clicked, it gets the class **selected** and either the class *
 
     $(".foo").selected({
        parent: '.bar',
-       targetClass: '.baz',
+       targetSelector: '.baz',
        selectAll: false // default is true
     });
     
@@ -40,7 +40,7 @@ You can also specify a parent selector to limit the scope of the selected item.
 And finally, you can choose an alternate class (closest parent element) to add/remove the toggle classes instead of the clicked item.
     
     $(".foo").selected({
-       targetClass: '.baz'
+       targetSelector: '.baz'
     });
 
 

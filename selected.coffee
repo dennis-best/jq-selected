@@ -6,23 +6,18 @@ $.fn.selected = (options={}) ->
   selectAll      = if options.selectAll? then options.selectAll else true
 
   @click (event) ->
-    unless bubbleUpEvent
-      return unless event.target is event.currentTarget
+    return unless ((event.target is event.currentTarget) && bubbleUpEvent)
     if $(event.target).is(this)
       clickTarget = event.target
     else
       clickTarget = $(event.target).closest(this)[0]
 
     if clickTarget is event.currentTarget
-
       if targetSelector?
-        targetEl = ".#{targetSelector}"
-        clickTarget = $(event.target).closest(targetEl)
-        className = targetSelector
-
+        clickTarget = $(event.target).closest(targetSelector)
       else
         clickTarget = $(clickTarget)
-        className = clickTarget.attr("class").split(" ")[0]
+      className = clickTarget.attr("class").split(" ")[0]
 
       if parent?
         $("#{parent} [class*=#{className}]").not(clickTarget).removeClass "selected odd even"
